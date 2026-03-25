@@ -6,6 +6,11 @@
 url("https://unpkg.com/bootstrap-icons@1.13.1/font/fonts/bootstrap-icons.woff2") format("woff2");
 }
 
+/* Map Dark Mode */
+img.wikimapia-image-tile {
+  filter: invert(1) hue-rotate(180deg);
+}
+
 /* =========================================
    1. VARIABLES & CORE
 ========================================= */
@@ -22,6 +27,8 @@ url("https://unpkg.com/bootstrap-icons@1.13.1/font/fonts/bootstrap-icons.woff2")
   --link: #90caf9;
   --link-hover: #bbdefb;
   --icon: #FF0000;
+
+  --wm-logo: url("https://raw.githubusercontent.com/tomilovsenya/Wikimapia_DarkTheme/refs/heads/main/res/Wikimapia_logo.svg");
 }
 
 html, body, #wikimapia, #map, body.index, 
@@ -36,30 +43,42 @@ html, body, #wikimapia, #map, body.index,
 ========================================= */
 
 /* Layout Container */
-#wikimapia-top-panel .navbar-inner .container-fluid {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 100vw;
-  box-sizing: border-box;
-  padding: 0 15px;
-}
-
-#wikimapia-top-panel .navbar-inner {
+#wikimapia-top-panel .container {
   background: var(--bg);
   background-image: none;
   border-bottom: 1px solid var(--border);
+  width: 100%;
   display: flex;
-  min-width: 0;
+  gap: 20px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Logo */
+#wikimapia-main-logo {
+  background-image: var(--wm-logo);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+#wikimapia-main-logo > div {
+  background: none;
 }
 
 /* Navigation Links */
-#wikimapia-top-panel .nav {
+#wikimapia-top-panel .wm-menu {
+  position: relative;
   display: flex;
-  float: none;
-  align-items: center;
-  flex-shrink: 0;
+  left: 0;
+}
+
+#wikimapia-top-panel .wm-menu ul.nav-pills {
+  position: relative;
+  width: fit-content;
+  display: flex;
 }
 
 #wikimapia-top-panel .menu-link,
@@ -68,15 +87,11 @@ html, body, #wikimapia, #map, body.index,
   text-shadow: none;
 }
 
-/* Right-Aligned 20% Search Bar */
+/* Search Bar */
 #search-form {
   display: flex;
-  width: 20%;
-  min-width: 200px;
-  max-width: 600px;
-  margin-left: auto; /* Pushes to the right */
-  margin-right: 15px;
-  float: none;
+  width: fit-content;
+  margin-left: auto;
 }
 
 #search-form input[type="text"]#query {
@@ -95,6 +110,14 @@ html, body, #wikimapia, #map, body.index,
   border: 1px solid var(--border);
   border-radius: 0 4px 4px 0;
   background-image: none;
+}
+
+#search-form i.icon-search::before {
+  color: white;
+}
+
+#top-panel-facebook-button {
+  display: none;
 }
 
 /* =========================================
