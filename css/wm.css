@@ -1,0 +1,357 @@
+/* =========================================
+   1. VARIABLES & CORE
+========================================= */
+:root {
+  --bg: #1e1e1e;
+  --surface: #1e1e1e;
+  --surface-2: #2d2d2d;
+  --surface-3: #383838;
+  --primary: #b71c1c;
+  --primary-hover: #d32f2f;
+  --text: #e0e0e0;
+  --text-muted: #9e9e9e;
+  --border: #444444;
+  --link: #90caf9;
+  --link-hover: #bbdefb;
+}
+
+html,
+body,
+#wikimapia,
+#map,
+body.index,
+.inner-page,
+.main-content,
+footer > * {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "PT Root UI", Arial, sans-serif;
+}
+
+/* =========================================
+   2. TOP PANEL (FLEXBOX + 20% SEARCH)
+========================================= */
+
+/* Layout Container */
+#wikimapia-top-panel .navbar-inner .container-fluid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  padding: 0 15px;
+}
+
+#wikimapia-top-panel .navbar-inner {
+  background: var(--bg);
+  background-image: none;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  min-width: 0;
+}
+
+/* Navigation Links */
+#wikimapia-top-panel .nav {
+  display: flex;
+  float: none;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+#wikimapia-top-panel .menu-link,
+#wikimapia-top-panel .menu-link span {
+  color: var(--text);
+  text-shadow: none;
+}
+
+/* Right-Aligned 20% Search Bar */
+#search-form {
+  display: flex;
+  width: 20%;
+  min-width: 200px;
+  max-width: 600px;
+  margin-left: auto; /* Pushes to the right */
+  margin-right: 15px;
+  float: none;
+}
+
+#search-form input[type="text"]#query {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 4px 0 0 4px;
+}
+
+#search-form .btn {
+  flex-shrink: 0;
+  background: var(--primary);
+  border: 1px solid var(--border);
+  border-radius: 0 4px 4px 0;
+  background-image: none;
+}
+
+/* =========================================
+   3. PANELS & WINDOWS
+========================================= */
+
+.wm-window,
+.wm-panel,
+.wm-panel-header,
+.wm-window-header,
+#placeinfo,
+.panel-with-menu {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.dropdown-menu,
+.context-menu ul,
+#categories-suggest {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+div.map-switchers {
+  background-image: none;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+/* Links */
+a,
+.likelink {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover,
+.likelink:hover {
+  color: var(--link-hover);
+}
+
+/* =========================================
+   4. UI COMPONENTS (Buttons & Inputs)
+========================================= */
+
+input,
+textarea,
+select,
+.select2-choice,
+.select2-drop {
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.button,
+.page-button,
+.alertify-button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  text-shadow: none;
+  background-image: none;
+}
+
+.button:hover,
+.page-button:hover {
+  background: var(--primary-hover);
+}
+
+/* =========================================
+   5. STATUS & TOOLTIPS
+========================================= */
+
+.status-bar {
+  background: rgba(18, 18, 18, 0.9);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+}
+
+.status-bar .content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 10px;
+}
+
+#wm-tooltip,
+.map-tooltip {
+  background: var(--surface-3);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+/* =========================================
+   6. CLEANUP
+========================================= */
+
+/* Remove Ads */
+#inner-page-adv,
+.search-ads-block,
+.adsbygoogle {
+  display: none;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+/* =========================================
+   REFINED HOVER STATES
+========================================= */
+
+/* Top Navigation Items */
+#wikimapia-top-panel .nav > li > a:hover,
+#wikimapia-top-panel .nav > li:hover > a {
+  background-color: var(--surface-3);
+  color: #ffffff;
+}
+
+/* Dropdown Menu Items */
+.dropdown-menu li > a:hover,
+.dropdown-menu li:hover > a,
+.context-menu .dropdown-menu > li > a:hover,
+#wikimapia-top-panel ul.level-0 ul li a:hover {
+  background-color: var(--surface-3);
+  color: #ffffff;
+  background-image: none; /* Removes legacy gradients */
+}
+
+/* Search and Category Suggestions */
+#categories-suggest li:hover,
+.search-result-item:hover,
+.searchlist li:hover {
+  background-color: var(--surface-3);
+  color: #ffffff;
+}
+
+/* Language and Select2 Dropdowns */
+.select2-results .select2-highlighted {
+  background-color: var(--surface-3);
+  color: #ffffff;
+}
+
+/* User Profile Menu Items */
+.my-profile li:hover,
+.my-profile li.active {
+  background-color: var(--surface-3);
+}
+
+/* Pagination / Prev-Next Buttons */
+.page-button:hover,
+span.prevnext:hover {
+  background-color: var(--surface-3);
+  color: #ffffff;
+}
+
+/* =========================================
+   DROPDOWN POSITIONING ONLY
+========================================= */
+
+/* Target both standard and Wikimapia-specific dropdown lists */
+#wikimapia-top-panel ul.level-0 ul,
+#wikimapia-top-panel .dropdown-menu,
+.dropdown-menu {
+  position: absolute;
+  /* Adjust this value if your specific top bar is taller/shorter */
+  top: 30px;
+  left: 0;
+  margin: 0;
+  padding: 5px 0;
+  z-index: 9999;
+
+  /* Visual Styles using your variables */
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Ensure the parent list item doesn't clip the menu */
+#wikimapia-top-panel .nav > li {
+  position: relative;
+  overflow: visible;
+}
+
+/* Ensure the search suggestions also align under the bar */
+#categories-suggest {
+  top: 30px;
+  margin-top: 0;
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+/* Update Hover Colors to secondary dark bg */
+#wikimapia-top-panel ul.level-0 ul li a:hover,
+.dropdown-menu li > a:hover,
+#categories-suggest li:hover {
+  background-color: var(--surface-3);
+  color: #ffffff;
+  background-image: none;
+}
+
+/* =========================================
+   NESTED DROPDOWNS: LEVEL-2 TO THE RIGHT
+========================================= */
+
+/* 1. Ensure the parent list item is the reference point */
+#wikimapia-top-panel .nav li ul li {
+  position: relative;
+}
+
+/* 2. Position level-2 menus to the right of level-1 */
+#wikimapia-top-panel ul.level-1 ul.level-2,
+#wikimapia-top-panel .dropdown-menu .dropdown-menu {
+  position: absolute;
+  /* Push it 100% to the right of the parent */
+  left: 100%;
+  /* Align it with the top of the current menu item */
+  top: 0;
+  margin-top: -1px; /* Align borders perfectly */
+  margin-left: 0;
+
+  /* Visual styling */
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  display: none; /* Hidden by default */
+}
+
+/* 3. Show level-2 on hover of its parent LI */
+#wikimapia-top-panel ul.level-1 li:hover > ul.level-2,
+#wikimapia-top-panel .dropdown-menu li:hover > .dropdown-menu {
+  display: block;
+}
+
+/* 4. Optional: Add a small arrow to indicate a sub-menu exists */
+#wikimapia-top-panel ul.level-1 li.dropdown-submenu > a:after {
+  content: "?";
+  float: right;
+  font-size: 10px;
+  margin-top: 1px;
+  margin-left: 10px;
+  color: var(--text-muted);
+}
+
+/* 5. Ensure the secondary dark background applies to hover here too */
+#wikimapia-top-panel ul.level-2 li a:hover {
+  background-color: var(--surface-3);
+  color: #ffffff;
+}

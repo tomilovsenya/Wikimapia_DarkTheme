@@ -1,0 +1,873 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined");
+
+@font-face {
+  font-family: "bootstrap-icons";
+  src: url("https://unpkg.com/bootstrap-icons@1.13.1/font/fonts/bootstrap-icons.woff") format("woff"),
+url("https://unpkg.com/bootstrap-icons@1.13.1/font/fonts/bootstrap-icons.woff2") format("woff2");
+}
+
+/* =========================================
+   1. VARIABLES & CORE
+========================================= */
+:root {
+  --bg: #1e1e1e;
+  --surface: #1e1e1e;
+  --surface-2: #2d2d2d;
+  --surface-3: #383838;
+  --primary: #b71c1c;
+  --primary-hover: #d32f2f;
+  --text: #e0e0e0;
+  --text-muted: #9e9e9e;
+  --border: #444444;
+  --link: #90caf9;
+  --link-hover: #bbdefb;
+  --icon: #FF0000;
+}
+
+html, body, #wikimapia, #map, body.index, 
+.inner-page, .main-content, footer > * {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "PT Root UI", Arial, sans-serif;
+}
+
+/* =========================================
+   2. TOP PANEL (FLEXBOX + 20% SEARCH)
+========================================= */
+
+/* Layout Container */
+#wikimapia-top-panel .navbar-inner .container-fluid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  padding: 0 15px;
+}
+
+#wikimapia-top-panel .navbar-inner {
+  background: var(--bg);
+  background-image: none;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  min-width: 0;
+}
+
+/* Navigation Links */
+#wikimapia-top-panel .nav {
+  display: flex;
+  float: none;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+#wikimapia-top-panel .menu-link,
+#wikimapia-top-panel .menu-link span {
+  color: var(--text);
+  text-shadow: none;
+}
+
+/* Right-Aligned 20% Search Bar */
+#search-form {
+  display: flex;
+  width: 20%;
+  min-width: 200px;
+  max-width: 600px;
+  margin-left: auto; /* Pushes to the right */
+  margin-right: 15px;
+  float: none;
+}
+
+#search-form input[type="text"]#query {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 4px 0 0 4px;
+}
+
+#search-form .btn {
+  flex-shrink: 0;
+  background: var(--primary);
+  border: 1px solid var(--border);
+  border-radius: 0 4px 4px 0;
+  background-image: none;
+}
+
+/* =========================================
+   3. PANELS & WINDOWS
+========================================= */
+
+.wm-window, .wm-panel, .wm-panel-header, 
+.wm-window-header, #placeinfo, .panel-with-menu {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.dropdown-menu, .context-menu ul, #categories-suggest {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+div.map-switchers {
+  background-image: none;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+/* Links */
+a, .likelink {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover, .likelink:hover {
+  color: var(--link-hover);
+}
+
+/* =========================================
+   4. UI COMPONENTS (Buttons & Inputs)
+========================================= */
+
+input, textarea, select, .select2-choice, .select2-drop {
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.button, .page-button, .alertify-button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  text-shadow: none;
+  background-image: none;
+}
+
+.button:hover, .page-button:hover {
+  background: var(--primary-hover);
+}
+
+/* =========================================
+   5. STATUS & TOOLTIPS
+========================================= */
+
+.status-bar {
+  background: rgba(18, 18, 18, 0.9);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+}
+
+.status-bar .content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 10px;
+}
+
+#wm-tooltip, .map-tooltip {
+  background: var(--surface-3);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+section.alertify-dialog {
+  border-color: var(--surface-2);
+  background: var(--bg);
+}
+
+section.alertify-dialog nav {
+  background: var(--bg);
+}
+
+/* =========================================
+   6. CLEANUP
+========================================= */
+
+/* Remove Ads */
+#inner-page-adv, .search-ads-block, .adsbygoogle {
+  display: none;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+
+/* =========================================
+   REFINED HOVER STATES
+========================================= */
+
+/* Top Navigation Items */
+#wikimapia-top-panel .nav > li > a:hover,
+#wikimapia-top-panel .nav > li:hover > a {
+  background-color: var(--surface-3);
+  color: #ffffff;
+}
+
+/* Dropdown Menu Items */
+.dropdown-menu li > a:hover,
+.dropdown-menu li:hover > a,
+.context-menu .dropdown-menu > li > a:hover,
+#wikimapia-top-panel ul.level-0 ul li a:hover {
+  background-color: var(--surface-3);
+  color: #ffffff;
+  background-image: none; /* Removes legacy gradients */
+}
+
+/* Search and Category Suggestions */
+#categories-suggest li:hover,
+.search-result-item:hover,
+.searchlist li:hover {
+  background-color: var(--surface-3);
+  color: #ffffff;
+}
+
+/* Language and Select2 Dropdowns */
+.select2-results .select2-highlighted {
+  background-color: var(--surface-3);
+  color: #ffffff;
+}
+
+/* User Profile Menu Items */
+.my-profile li:hover,
+.my-profile li.active {
+  background-color: var(--surface-3);
+}
+
+/* Pagination / Prev-Next Buttons */
+.page-button:hover,
+span.prevnext:hover {
+  background-color: var(--surface-3);
+  color: #ffffff;
+}
+
+/* =========================================
+   DROPDOWN POSITIONING ONLY
+========================================= */
+
+/* Target both standard and Wikimapia-specific dropdown lists */
+#wikimapia-top-panel ul.level-0 ul,
+#wikimapia-top-panel .dropdown-menu,
+.dropdown-menu {
+  position: absolute;
+  /* Adjust this value if your specific top bar is taller/shorter */
+  top: 30px; 
+  left: 0;
+  margin: 0;
+  padding: 5px 0;
+  z-index: 9999;
+  
+  /* Visual Styles using your variables */
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* Ensure the parent list item doesn't clip the menu */
+#wikimapia-top-panel .nav > li {
+  position: relative;
+  overflow: visible;
+}
+
+/* Ensure the search suggestions also align under the bar */
+#categories-suggest {
+  top: 30px;
+  margin-top: 0;
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+/* Update Hover Colors to secondary dark bg */
+#wikimapia-top-panel ul.level-0 ul li a:hover,
+.dropdown-menu li > a:hover,
+#categories-suggest li:hover {
+  background-color: var(--surface-3);
+  color: #ffffff;
+  background-image: none;
+}
+
+/* =========================================
+   NESTED DROPDOWNS: LEVEL-2 TO THE RIGHT
+========================================= */
+
+/* 1. Ensure the parent list item is the reference point */
+#wikimapia-top-panel .nav li ul li {
+  position: relative;
+}
+
+/* 2. Position level-2 menus to the right of level-1 */
+#wikimapia-top-panel ul.level-1 ul.level-2,
+#wikimapia-top-panel .dropdown-menu .dropdown-menu {
+  position: absolute;
+  /* Push it 100% to the right of the parent */
+  left: 100%; 
+  /* Align it with the top of the current menu item */
+  top: 0; 
+  margin-top: -1px; /* Align borders perfectly */
+  margin-left: 0;
+  
+  /* Visual styling */
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  display: none; /* Hidden by default */
+}
+
+/* 3. Show level-2 on hover of its parent LI */
+#wikimapia-top-panel ul.level-1 li:hover > ul.level-2,
+#wikimapia-top-panel .dropdown-menu li:hover > .dropdown-menu {
+  display: block;
+}
+
+/* 4. Optional: Add a small arrow to indicate a sub-menu exists */
+#wikimapia-top-panel ul.level-1 li.dropdown-submenu > a:after {
+  content: "?";
+  float: right;
+  font-size: 10px;
+  margin-top: 1px;
+  margin-left: 10px;
+  color: var(--text-muted);
+}
+
+/* 5. Ensure the secondary dark background applies to hover here too */
+#wikimapia-top-panel ul.level-2 li a:hover {
+  background-color: var(--surface-3);
+  color: #ffffff;
+}
+
+/* =========================================
+   PLACE INFO
+========================================= */
+
+div.panel-with-menu span, a, li {
+  text-shadow: none;
+}
+
+div.panel-with-menu a:hover {
+  background-color: var(--surface-3);
+}
+
+#placeinfo-locationtree {
+  background-color: var(--surface-2);
+}
+
+div#placeinfo-categories strong.category, div#placeinfo-categories a {
+  background: none;
+  background-color: var(--surface-2);
+  border-color: var(--surface-3);
+  color: var(--text-muted);
+}
+div#placeinfo-categories strong.category:hover, a:hover {
+  background-color: var(--surface-3);
+}
+
+i.icon-tags::before {
+  font-size: 16px;
+  content: "\e0ee";
+}
+i.icon-tag::before {
+  font-size: 16px;
+  content: "\f756";
+}
+i.icon-plus::before {
+  font-size: 16px;
+  content: "\e567";
+}
+
+div#permalink-sharing a {
+  background: none;
+  background-color: var(--surface-2);
+}
+
+#comment-input {
+  width: 98%;
+  min-height: 100px;
+  max-height: 300px;
+}
+
+ul.edit-object-breadcrumb {
+  background-color: var(--surface-2);
+}
+
+div#edit-actions {
+  background-color: var(--surface-2);
+  border-color: var(--border);
+}
+
+div#edit-actions span {
+  background: none;
+  border-color: var(--border);
+  background-color: var(--surface-2);
+  color: var(--link);
+}
+
+div#edit-actions span:hover {
+  background-color: var(--surface-3);
+  color: var(--link-hover);
+}
+
+div.accordion-group * span.title, li {
+  color: var(--text);
+}
+
+div.accordion-heading:hover {
+  background-color: var(--surface-3);
+}
+
+div#searchtcatsdiv ul {
+  background-color: var(--surface-2);
+}
+
+div.edit-form-description-input textarea {
+  width: 100%;
+  min-height: 100px;
+  max-height: 300px;
+}
+
+div#searchtcatsdiv li a {
+  background: none;
+}
+div#searchtcatsdiv li a::before {
+  font-family: "Material Symbols Outlined";
+  font-size: 18px;
+  height: 18px;
+  width: 18px;
+  color: var(--icon);
+  content: "\e5cd";
+  display: inline-block;
+}
+div#searchtcatsdiv li a:hover {
+  filter: invert(100%);
+  transition: filter .5s ease-in-out;
+}
+
+div#fileupload {
+  /* background-color: black; */
+}
+
+/* =========================================
+   PROFILE PAGE
+========================================= */
+
+div.profile-tabs-row {
+  background-color: var(--bg);
+  box-shadow: none;
+}
+
+div.profile-tabs-row a {
+  background-color: var(--surface);
+}
+div.profile-tabs-row li.active a {
+  background-color: var(--surface-2);
+}
+div.profile-tabs-row li a:hover {
+  background-color: var(--surface-3);
+  color: var(--link-hover);
+}
+
+div#profile-instant-controls {
+  background-color: var(--surface-2);
+}
+div#profile-instant-controls a:hover {
+  background-color: var(--surface-3);
+}
+div#profile-instant-controls a {
+  display: inline-flex;
+  gap: 10px;
+} 
+
+/* Place Context Menu */
+div#object-context-menu ul {
+  width: max-content;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+span.btn-small {
+  background: none;
+  color: var(--link);
+  background-color: var(--surface-2);
+  border-color: var(--surface-3);
+}
+
+span.btn-small:hover {
+  background-color: var(--surface-3);
+  color: var(--link-hover);
+}
+
+div.wm-button-tooltip {
+  background-color: var(--surface-2);
+}
+
+div.wm-button-tooltip span {
+  font-family: PT Root UI !important;
+  padding: 0;
+  margin: 0;
+}
+
+a.btn {
+  background: none;
+  background-color: var(--surface-2);
+  border-color: var(--surface-3);
+  display: inline-flex;
+  gap: 5px;
+}
+a.btn-small:hover {
+  background-color: var(--surface-3);
+}
+input.btn:hover {
+  background-color: var(--surface-3);
+}
+
+/* =========================================
+   ICONS
+========================================= */
+
+span.menu-icon {
+  background: none;
+  font-family: "Material Symbols Outlined";
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  color: var(--icon);
+}
+
+#wikimapia-controls div {
+  /* background-image: none; */
+  /* background-color: pink; */
+  /* display: flex; */
+}
+
+#wikimapia-controls span {
+  /* background-image: none; */
+  /* font-family: "Material Symbols Outlined"; */
+  /* font-size: 16px; */
+  /* background-color: var(--surface-3); */
+}
+
+#wikimapia-controls div.wm-noprint div span {
+  background-image: none;
+  font-family: "Material Symbols Outlined";
+}
+
+span#wm-icn-28675::before {
+  content: "\e0c8";
+}
+span#wm-icn-82::before {
+  content: "\ef3a";
+}
+span#wm-icn-85::before {
+  content: "\f69b";
+}
+
+/* Place Info */
+div.wm-panel-insideheader span.menu-icon {
+  font-size: 18px;
+  font-weight: 100;
+}
+
+div.wm-panel-insideheader li.item-0 span.menu-icon::before {
+  content: "\e745";
+}
+div.wm-panel-insideheader li.item-1 span.menu-icon::before {
+  content: "\e889";
+}
+
+/* div.panel-left * i { */
+i {
+  background: none;
+  font-family: "Material Symbols Outlined";
+  font-style: normal;
+  color: var(--icon);
+  font-size: 20px;
+}
+i::before {
+  color: var(--icon);
+}
+
+div#edit-actions span.btn {
+  display: inline-flex;
+  gap: 5px;
+}
+
+div.accordion-group span.title {
+  background: none;
+  padding: 0;
+  display: inline-flex;
+  gap: 5px;
+}
+
+i.icon-camera::before {
+  content: "\e43e";
+}
+
+div#permalink-sharing i::before {
+  font-size: 16px;
+  font-family: "bootstrap-icons";
+}
+div#permalink-sharing a:hover {
+  background-color: var(--surface-3);
+}
+a.btn-gplus, a.btn-vk {
+  display: none;
+}
+
+i.icon-fb::before {
+  content: "\F344";
+}
+i.icon-twitter::before {
+  content: "\F5EF";
+}
+
+i.spt-polygon::before {
+  content: "\ebbb";
+}
+i.spt-photo::before {
+  content: "\e43e";
+}
+i.spt-delete::before {
+  content: "\e872";
+}
+i.spt-lock::before {
+  content: "\e897";
+}
+
+i.icon-align-justify::before {
+  content: "\e745";
+}
+i.icon-map-marker::before {
+  content: "\f05f";
+}
+i.icon-picture::before {
+  content: "\e851";
+}
+i.icon-edit::before {
+  content: "\f4fa";
+}
+
+span.title::before {
+  font-family: "Material Symbols Outlined";
+  font-size: 20px;
+  color: var(--icon);
+}
+
+span.address span.title::before {
+  content: "\e158";
+}
+span.categories span.title::before {
+  content: "\e574";
+}
+span.building span.title::before {
+  content: "\ea40";
+}
+span.wikipedia span.title::before {
+  font-family: "bootstrap-icons";
+  content: "\F8CC";
+}
+div.summary span.title::before {
+  content: "\e89c";
+}
+
+/* Place Categories */
+span.menu-spt {
+  background: none;
+  margin-right: 10px;
+}
+span.menu-spt::before {
+  font-family: "Material Symbols Outlined";
+  font-size: 20px;
+  color: var(--icon);
+  margin: 0;
+}
+span.categosry-name {
+  /* display: inline-flex; */
+}
+
+span.spt-empty-category::before {content: "\e896";}
+span.spt-00-04::before {content: "\ebbc";}
+span.spt-00-06::before {content: "\ebbc";}
+span.spt-00-13::before {content: "\e153";}
+span.spt-00-14::before {content: "\f22a";}
+span.spt-00-25::before {content: "\eb90";}
+span.spt-00-28::before {content: "\e546";}
+span.spt-00-30::before {content: "\f8f2";}
+span.spt-00-33::before {content: "\eb45";}
+span.spt-00-34::before {content: "\ea62";}
+span.spt-00-37::before {content: "\e0a5";}
+span.spt-00-38::before {content: "\e3f7";}
+span.spt-00-43::before {content: "\f478";}
+span.spt-00-44::before {content: "\e176";}
+span.spt-00-45::before {content: "\ea44";}
+span.spt-00-47::before {content: "\e56c";}
+span.spt-00-48::before {content: "\e7f1";}
+span.spt-00-50::before {content: "\e80c";}
+span.spt-00-52::before {content: "\eab2";}
+span.spt-00-53::before {content: "\f25b";}
+span.spt-00-55::before {content: "\f282";}
+span.spt-00-57::before {content: "\e58a";}
+span.spt-00-61::before {content: "\eaae";}
+span.spt-00-62::before {content: "\e554";}
+span.spt-00-66::before {content: "\ea3e";}
+span.spt-00-70::before {content: "\ea36";}
+span.spt-00-75::before {content: "\e54b";}
+span.spt-00-78::before {content: "\f588";}
+span.spt-00-79::before {content: "\e6ca";}
+span.spt-00-84::before {content: "\e1eb";}
+span.spt-00-85::before {content: "\e02c";}
+span.spt-00-87::before {content: "\e550";}
+span.spt-00-90::before {content: "\e540";}
+span.spt-00-91::before {content: "\eb48";}
+span.spt-00-92::before {content: "\ea66";}
+span.spt-00-93::before {content: "\f05f";}
+span.spt-00-94::before {content: "\ea12";}
+span.spt-00-97::before {content: "\f1cc";}
+span.spt-00-98::before {content: "\e84f";}
+span.spt-01-01::before {content: "\eb3e";}
+span.spt-01-03::before {content: "\ea40";}
+span.spt-01-04::before {content: "\e53a";}
+
+/* Distance Measurement */
+span#wm-icn-18389::before {
+  content: "\f69b";
+}
+span#wm-icn-18392::before {
+  content: "\ef78";
+}
+span#wm-icn-18386::before {
+  content: "\ea10";
+}
+span#wm-icn-18383::before {
+  content: "\e166";
+}
+
+/* Left Panel */
+div.geolocation div.wm-noprint > div > span::before { 
+  content: "\e55c";
+  font-size: 16px;
+}
+div.distance-measure div.wm-noprint > div > span::before { 
+  content: "\f69b";
+  font-size: 16px;
+}
+div.add-place div.wm-noprint > div > span::before { 
+  content: "\e567";
+  font-size: 16px;
+}
+
+/* div.distance-measure > div > div {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  background-color: var(--surface-2);
+  border-radius: 5px;
+} */
+
+/* Top Navbar */
+i.icon-search::before {
+  font-size: 15px;
+  content: "\e8b6";
+}
+
+/* Edit */
+#wikimapia-top-panel li.n-0-0 span.menu-icon::before { content: "\e1c5"; }
+#wikimapia-top-panel li.n-0-0-0 span.menu-icon::before { content: "\ef3a"; }
+#wikimapia-top-panel li.n-0-0-2 span.menu-icon::before { content: "\f472"; }
+#wikimapia-top-panel li.n-0-0-3 span.menu-icon::before { content: "\e570"; }
+#wikimapia-top-panel li.n-0-0-4 span.menu-icon::before { content: "\e532"; }
+#wikimapia-top-panel li.n-0-0-5 span.menu-icon::before { content: "\f084"; }
+
+/* Categories */
+#wikimapia-top-panel li.n-0-1 span.menu-icon::before { content: "\f437"; }
+#wikimapia-top-panel li.n-0-1-0 span.menu-icon::before { content: "\f1cc"; }
+#wikimapia-top-panel li.n-0-1-1 span.menu-icon::before { content: "\eb90"; }
+#wikimapia-top-panel li.n-0-1-2 span.menu-icon::before { content: "\e53a"; }
+#wikimapia-top-panel li.n-0-1-3 span.menu-icon::before { content: "\e56c"; }
+#wikimapia-top-panel li.n-0-1-4 span.menu-icon::before { content: "\ea3e"; }
+#wikimapia-top-panel li.n-0-1-5 span.menu-icon::before { content: "\e7f1"; }
+#wikimapia-top-panel li.n-0-1-6 span.menu-icon::before { content: "\ea44"; }
+#wikimapia-top-panel li.n-0-1-7 span.menu-icon::before { content: "\f22a"; }
+#wikimapia-top-panel li.n-0-1-8 span.menu-icon::before { content: "\e80c"; }
+#wikimapia-top-panel li.n-0-1-9 span.menu-icon::before { content: "\e1eb"; }
+#wikimapia-top-panel li.n-0-1-10 span.menu-icon::before { content: "\e176"; }
+#wikimapia-top-panel li.n-0-1-11 span.menu-icon::before { content: "\e9e8"; }
+#wikimapia-top-panel li.n-0-1-12 span.menu-icon::before { content: "\e58a"; }
+#wikimapia-top-panel li.n-0-1-13 span.menu-icon::before { content: "\ea12"; }
+#wikimapia-top-panel li.n-0-1-14 span.menu-icon::before { content: "\e546"; }
+
+/* Profile */
+#wikimapia-top-panel li.n-0-2 span.menu-icon::before { content: "\e851"; }
+#wikimapia-top-panel li.n-0-2-0 span.menu-icon::before { content: "\e853"; }
+#wikimapia-top-panel li.n-0-2-1 span.menu-icon::before { content: "\f399"; }
+#wikimapia-top-panel li.n-0-2-2 span.menu-icon::before { content: "\eb8e"; }
+#wikimapia-top-panel li.n-0-2-2-3 span.menu-icon::before { content: "\f69b"; }
+#wikimapia-top-panel li.n-0-2-4 span.menu-icon::before { content: "\e88e"; }
+#wikimapia-top-panel li.n-0-2-5 span.menu-icon::before { content: "\f561"; }
+#wikimapia-top-panel li.n-0-2-7 span.menu-icon::before { content: "\f3e2"; }
+#wikimapia-top-panel li.n-0-2-8 span.menu-icon::before { content: "\f1c2"; }
+#wikimapia-top-panel li.n-0-2-9 span.menu-icon::before { content: "\ea7d"; }
+#wikimapia-top-panel li.n-0-2-10 span.menu-icon::before { content: "\e0bf"; }
+#wikimapia-top-panel li.n-0-2-11 span.menu-icon::before { content: "\e160"; }
+#wikimapia-top-panel li.n-0-2-12 span.menu-icon::before { content: "\e619"; }
+#wikimapia-top-panel li.n-0-2-12-0 span.menu-icon::before { content: "\f518"; }
+#wikimapia-top-panel li.n-0-2-12-1 span.menu-icon::before { content: "\e8d9"; }
+#wikimapia-top-panel li.n-0-2-12-3 span.menu-icon::before { content: "\e889"; }
+#wikimapia-top-panel li.n-0-2-12-4 span.menu-icon::before { content: "\f561"; }
+#wikimapia-top-panel li.n-0-2-12-5 span.menu-icon::before { content: "\f3e6"; }
+#wikimapia-top-panel li.n-0-2-12-6 span.menu-icon::before { content: "\e64c"; }
+#wikimapia-top-panel li.n-0-2-13 span.menu-icon::before { content: "\e9ba"; }
+
+i.icon-chevron-right::before { content: "\e315"; }
+i.icon-chevron-down::before { content: "\e313"; }
+
+/* Image Viewer */
+a#swipebox-close i.control-icon::before {
+  vertical-align: middle;
+  font-size: 50px;
+  content: "\e5cd"; 
+}
+a.icon-resize-full {
+  background: none;
+  border: none;
+}
+a.icon-resize-full::before {
+  font-family: "Material Symbols Outlined";
+  content: "\f1ce"; 
+  font-size: 20px;
+}
+
+/* Polygon Edit Context Menu */
+div#object-context-menu span.spt-poly-rotate::before {
+  content: "\e41a"; }
+div#object-context-menu span.spt-poly-scale::before {
+  content: "\f707"; }
+div#object-context-menu span.spt-poly-square::before {
+  content: "\e920"; }
+div#object-context-menu span.spt-poly-circle::before {
+  content: "\e933"; }
+
+/* Place Context Menu */
+div#object-context-menu li.n-0-0 span.menu-icon:not([class*="spt-"])::before { content: "\eb2d"; }
+div#object-context-menu li.n-0-2 span.menu-icon:not([class*="spt-"])::before { content: "\e1c5"; }
+div#object-context-menu li.n-0-3 span.menu-icon:not([class*="spt-"])::before { content: "\f758"; }
+div#object-context-menu li.n-0-4 span.menu-icon:not([class*="spt-"])::before { content: "\ebbb"; }
+div#object-context-menu li.n-0-5 span.menu-icon:not([class*="spt-"])::before { content: "\e889"; }
+div#object-context-menu li.n-0-7 span.menu-icon:not([class*="spt-"])::before { content: "\ef49"; }
+div#object-context-menu li.n-0-8 span.menu-icon:not([class*="spt-"])::before { content: "\e872"; }
