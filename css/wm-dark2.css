@@ -462,113 +462,104 @@ span.prevnext:hover {
 }
 
 /* =========================================
-   PLACE INFO
+   PLACE INFO (Refactored)
 ========================================= */
 
-div.panel-with-menu span, a, li {
-  text-shadow: none;
-}
+/* Shared Textarea Styles */
+.panel-with-menu, #placeinfo, .panel-with-header body {
+  #comment-input { width: 98%; }
+  .edit-form-description-input textarea { width: 100%; }
 
-div.panel-with-menu a:hover {
-  background-color: var(--surface-3);
-}
+  /* Then group the shared properties */
+  #comment-input, 
+  .edit-form-description-input textarea {
+    min-height: 100px;
+    max-height: 300px;
+  }
 
-#placeinfo-locationtree {
-  background-color: var(--surface-2);
-}
+  /* Panel & Global resets */
+  span, a, li { text-shadow: none; }
+  a:hover { background-color: var(--surface-3); }
 
-div#placeinfo-categories strong.category, div#placeinfo-categories a {
-  background: none;
-  background-color: var(--surface-2);
-  border-color: var(--surface-3);
-  color: var(--text-muted);
-}
-div#placeinfo-categories strong.category:hover, a:hover {
-  background-color: var(--surface-3);
-}
+  /* Surface-2 Background Group */
+  #placeinfo-locationtree,
+  .edit-object-breadcrumb,
+  #edit-actions,
+  #searchtcatsdiv ul {
+    background-color: var(--surface-2);
+  }
 
-i.icon-tags::before {
-  font-size: 16px;
-  content: "\e0ee";
-}
-i.icon-tag::before {
-  font-size: 16px;
-  content: "\f756";
-}
-i.icon-plus::before {
-  font-size: 16px;
-  content: "\e567";
-}
+  /* Categories Section */
+  #placeinfo-categories {
+    strong.category, a {
+      background: none;
+      background-color: var(--surface-2);
+      border-color: var(--border);
+      color: var(--text-muted);
 
-div#permalink-sharing a {
-  background: none;
-  background-color: var(--surface-2);
-}
+      &:hover { background-color: var(--surface-3); }
+    }
+  }
 
-#comment-input {
-  width: 98%;
-  min-height: 100px;
-  max-height: 300px;
-}
+  /* Edit Actions Section */
+  #edit-actions {
+    border-color: var(--border);
 
-ul.edit-object-breadcrumb {
-  background-color: var(--surface-2);
-}
+    span {
+      background: none;
+      border-color: var(--border);
+      background-color: var(--surface-2);
+      color: var(--link);
 
-div#edit-actions {
-  background-color: var(--surface-2);
-  border-color: var(--border);
-}
+      &:hover {
+        background-color: var(--surface-3);
+        color: var(--link-hover);
+      }
+    }
+  }
 
-div#edit-actions span {
-  background: none;
-  border-color: var(--border);
-  background-color: var(--surface-2);
-  color: var(--link);
-}
+  /* Icons Consistently Sized */
+  i[class^="icon-"]::before { font-size: 16px; }
+  .icon-tags::before { content: "\e0ee"; }
+  .icon-tag::before  { content: "\f756"; }
+  .icon-plus::before { content: "\e567"; }
 
-div#edit-actions span:hover {
-  background-color: var(--surface-3);
-  color: var(--link-hover);
-}
+  /* Sharing & Misc */
+  #permalink-sharing a {
+    background: none;
+    background-color: var(--surface-2);
+  }
 
-div.accordion-group * span.title, li {
-  color: var(--text);
-}
+  .accordion-group * span.title, 
+  li {
+    color: var(--text);
+  }
 
-div.accordion-heading:hover {
-  background-color: var(--surface-3);
-}
+  .accordion-heading:hover {
+    background-color: var(--surface-3);
+  }
 
-div#searchtcatsdiv ul {
-  background-color: var(--surface-2);
-}
+  /* Search Categories List */
+  #searchtcatsdiv {
+    li a {
+      background: none;
 
-div.edit-form-description-input textarea {
-  width: 100%;
-  min-height: 100px;
-  max-height: 300px;
-}
+      &::before {
+        font-family: "Material Symbols Outlined";
+        font-size: 18px;
+        height: 18px;
+        width: 18px;
+        color: var(--icon);
+        content: "\e5cd";
+        display: inline-block;
+      }
 
-div#searchtcatsdiv li a {
-  background: none;
-}
-div#searchtcatsdiv li a::before {
-  font-family: "Material Symbols Outlined";
-  font-size: 18px;
-  height: 18px;
-  width: 18px;
-  color: var(--icon);
-  content: "\e5cd";
-  display: inline-block;
-}
-div#searchtcatsdiv li a:hover {
-  filter: invert(100%);
-  transition: filter .5s ease-in-out;
-}
-
-div#fileupload {
-  /* background-color: black; */
+      &:hover {
+        filter: invert(100%);
+        transition: filter 0.5s ease-in-out;
+      }
+    }
+  }
 }
 
 /* =========================================
