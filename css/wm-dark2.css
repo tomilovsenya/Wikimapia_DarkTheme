@@ -156,6 +156,95 @@ a:hover, .likelink:hover {
 }
 
 /* =========================================
+   LOGIN WINDOW
+========================================= */
+form i.icon-fb::before {
+  color: white;
+  font-family: bootstrap-icons;
+  font-size: 24px;
+  vertical-align: middle;
+}
+
+/* =========================================
+    IMAGE VIEWER (Nested)
+========================================= */
+#swipebox-overlay {
+  /* Common variables for the group */
+  --icon-size: 80px;
+
+  /* Use & to refer to the parent, or just list children */
+  .swipebox-caption {
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 20px;
+  }
+
+  .content, 
+  .icon-resize-full {
+    background: none;
+    border: none;
+  }
+
+  .logo {
+    background: var(--wm-logo) center / contain no-repeat;
+    position: relative;
+    width: 150px;
+  }
+
+  #swipebox-close {
+    position: relative;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: 100%;
+
+    i.control-icon::before {
+      vertical-align: middle;
+      font-size: 44px;
+      content: "\f508";
+    }
+  }
+
+  .swipebox-action {
+    display: flex;
+
+    &.right { justify-content: flex-end; }
+    .disabled { display: none; }
+
+    a {
+      max-width: 100px;
+      position: relative;
+      opacity: 0.5;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    i.control-icon {
+      margin: 0;
+      inset: 0;
+      width: var(--icon-size);
+      height: var(--icon-size);
+    }
+  }
+
+  /* Target the icons globally within the overlay */
+  i.control-icon::after {
+    color: white;
+    font-size: var(--icon-size);
+  }
+
+  #swipebox-prev i.control-icon::after { content: "\e314"; }
+  #swipebox-next i.control-icon::after { content: "\e315"; }
+  #swipebox-next { align-items: flex-end; }
+}
+
+/* =========================================
    4. UI COMPONENTS (Buttons & Inputs)
 ========================================= */
 
@@ -230,7 +319,6 @@ section.alertify-dialog nav {
 ::-webkit-scrollbar-track {
   background: var(--bg);
 }
-
 
 /* =========================================
    REFINED HOVER STATES
