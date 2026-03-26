@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined");
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 @font-face {
   font-family: "bootstrap-icons";
@@ -35,7 +36,7 @@ html, body, #wikimapia, #map, body.index,
 .inner-page, .main-content, footer > * {
   background: var(--bg);
   color: var(--text);
-  font-family: "PT Root UI", Arial, sans-serif;
+  font-family: "PT Sans", sans-serif;
 }
 
 /* =========================================
@@ -74,13 +75,11 @@ html, body, #wikimapia, #map, body.index,
   display: flex;
   left: 0;
 }
-
 #wikimapia-top-panel .wm-menu ul.nav-pills {
   position: relative;
   width: fit-content;
   display: flex;
 }
-
 #wikimapia-top-panel .menu-link,
 #wikimapia-top-panel .menu-link span {
   color: var(--text);
@@ -93,7 +92,6 @@ html, body, #wikimapia, #map, body.index,
   width: fit-content;
   margin-left: auto;
 }
-
 #search-form input[type="text"]#query {
   flex: 1;
   width: 100%;
@@ -103,7 +101,6 @@ html, body, #wikimapia, #map, body.index,
   border: 1px solid var(--border);
   border-radius: 4px 0 0 4px;
 }
-
 #search-form .btn {
   flex-shrink: 0;
   background: var(--primary);
@@ -111,7 +108,6 @@ html, body, #wikimapia, #map, body.index,
   border-radius: 0 4px 4px 0;
   background-image: none;
 }
-
 #search-form i.icon-search::before {
   color: white;
 }
@@ -146,12 +142,15 @@ div.map-switchers {
   flex-direction: row;
 }
 
+div.form-actions {
+  background-color: var(--surface);
+}
+
 /* Links */
 a, .likelink {
   color: var(--link);
   text-decoration: none;
 }
-
 a:hover, .likelink:hover {
   color: var(--link-hover);
 }
@@ -860,22 +859,6 @@ i.icon-search::before {
 i.icon-chevron-right::before { content: "\e315"; }
 i.icon-chevron-down::before { content: "\e313"; }
 
-/* Image Viewer */
-a#swipebox-close i.control-icon::before {
-  vertical-align: middle;
-  font-size: 50px;
-  content: "\e5cd"; 
-}
-a.icon-resize-full {
-  background: none;
-  border: none;
-}
-a.icon-resize-full::before {
-  font-family: "Material Symbols Outlined";
-  content: "\f1ce"; 
-  font-size: 20px;
-}
-
 /* Polygon Edit Context Menu */
 div#object-context-menu span.spt-poly-rotate::before {
   content: "\e41a"; }
@@ -885,6 +868,12 @@ div#object-context-menu span.spt-poly-square::before {
   content: "\e920"; }
 div#object-context-menu span.spt-poly-circle::before {
   content: "\e933"; }
+
+/* Resize Polygon Context Menu */
+div#object-context-menu span.spt-ok::before {
+  content: "\e5ca"; }
+div#object-context-menu span.spt-cancel::before {
+  content: "\e5cd"; }
 
 /* Place Context Menu */
 div#object-context-menu li.n-0-0 span.menu-icon:not([class*="spt-"])::before { content: "\eb2d"; }
