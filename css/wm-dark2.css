@@ -712,15 +712,9 @@ span.menu-icon {
   font-family: "Material Symbols Outlined";
 }
 
-span#wm-icn-28675::before {
-  content: "\e0c8";
-}
-span#wm-icn-82::before {
-  content: "\ef3a";
-}
-span#wm-icn-85::before {
-  content: "\f69b";
-}
+span#wm-icn-28675::before {content: "\e0c8";}
+span#wm-icn-82::before {content: "\ef3a";}
+span#wm-icn-85::before {content: "\f69b";}
 
 /* Place Info */
 div.wm-panel-insideheader {
@@ -759,10 +753,6 @@ div.accordion-group span.title {
   gap: 5px;
 }
 
-i.icon-camera::before {
-  content: "\e43e";
-}
-
 div#permalink-sharing i::before {
   font-size: 16px;
   font-family: "bootstrap-icons";
@@ -774,38 +764,19 @@ a.btn-gplus, a.btn-vk {
   display: none;
 }
 
-i.icon-fb::before {
-  content: "\F344";
-}
-i.icon-twitter::before {
-  content: "\F5EF";
-}
+i.icon-fb::before {content: "\F344";}
+i.icon-twitter::before {content: "\F5EF";}
 
-i.spt-polygon::before {
-  content: "\ebbb";
-}
-i.spt-photo::before {
-  content: "\e43e";
-}
-i.spt-delete::before {
-  content: "\e872";
-}
-i.spt-lock::before {
-  content: "\e897";
-}
+i.spt-polygon::before {content: "\ebbb";}
+i.spt-photo::before {content: "\e43e";}
+i.spt-delete::before {content: "\e872";}
+i.spt-lock::before {content: "\e897";}
 
-i.icon-align-justify::before {
-  content: "\e745";
-}
-i.icon-map-marker::before {
-  content: "\f05f";
-}
-i.icon-picture::before {
-  content: "\e851";
-}
-i.icon-edit::before {
-  content: "\f4fa";
-}
+i.icon-camera::before {content: "\e43e";}
+i.icon-align-justify::before {content: "\e745";}
+i.icon-map-marker::before {content: "\f05f";}
+i.icon-picture::before {content: "\e851";}
+i.icon-edit::before {content: "\f4fa";}
 
 span.title::before {
   font-family: "Material Symbols Outlined";
@@ -813,22 +784,14 @@ span.title::before {
   color: var(--icon);
 }
 
-span.address span.title::before {
-  content: "\e158";
-}
-span.categories span.title::before {
-  content: "\e574";
-}
-span.building span.title::before {
-  content: "\ea40";
-}
+span.address span.title::before {content: "\e158";}
+span.categories span.title::before {content: "\e574";}
+span.building span.title::before {content: "\ea40";}
 span.wikipedia span.title::before {
   font-family: "bootstrap-icons";
   content: "\F8CC";
 }
-div.summary span.title::before {
-  content: "\e89c";
-}
+div.summary span.title::before {content: "\e89c";}
 
 /* Place Categories */
 span.menu-spt {
@@ -982,20 +945,14 @@ i.icon-chevron-right::before { content: "\e315"; }
 i.icon-chevron-down::before { content: "\e313"; }
 
 /* Polygon Edit Context Menu */
-div#object-context-menu span.spt-poly-rotate::before {
-  content: "\e41a"; }
-div#object-context-menu span.spt-poly-scale::before {
-  content: "\f707"; }
-div#object-context-menu span.spt-poly-square::before {
-  content: "\e920"; }
-div#object-context-menu span.spt-poly-circle::before {
-  content: "\e933"; }
+div#object-context-menu span.spt-poly-rotate::before {content: "\e41a"; }
+div#object-context-menu span.spt-poly-scale::before {content: "\f707"; }
+div#object-context-menu span.spt-poly-square::before {content: "\e920"; }
+div#object-context-menu span.spt-poly-circle::before {content: "\e933"; }
 
 /* Resize Polygon Context Menu */
-div#object-context-menu span.spt-ok::before {
-  content: "\e5ca"; }
-div#object-context-menu span.spt-cancel::before {
-  content: "\e5cd"; }
+div#object-context-menu span.spt-ok::before {content: "\e5ca"; }
+div#object-context-menu span.spt-cancel::before {content: "\e5cd"; }
 
 /* Place Context Menu */
 div#object-context-menu li.n-0-0 span.menu-icon:not([class*="spt-"])::before { content: "\eb2d"; }
