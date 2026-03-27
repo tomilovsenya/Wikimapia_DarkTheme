@@ -570,11 +570,13 @@ span.prevnext:hover {
 }
 
 /* =========================================
-    LEFT PANEL
+    WIKIMAPIA CONTROLS
 ========================================= */
 
+/* Left Panel */
 #wikimapia-controls {
-  :is(#wm-Geolocation, #distance-measure-button, #wm-Add) > div {
+  .wm-noprint span {background-image: none;}
+  div[id^="wm-button"] {
     background-color: var(--button);
     border-radius: 4px;
     &:hover {
@@ -582,12 +584,28 @@ span.prevnext:hover {
       color: var(--icon);
     }
     & > div {background: none;}
+    div[id$="-content"] { 
+      width: 100%;
+      height: 100%;
+    }
+    span[id^="wm-icn"] {
+      display: flex; 
+      justify-content: center; 
+      align-items: center;
+      span::before {  
+        font-family: "Material Symbols Outlined";
+        font-size: 18px;
+        line-height: 18px;
+      }
+    }
+    div[id$="-right"] { display: none;}
   }
   [id^="wm-icn"] {
     width: 18px;
     height: 18px;
   }
-  span::before {
+  span::before {  
+    font-family: "Material Symbols Outlined";
     font-size: 18px;
     line-height: 18px;
   }
@@ -655,6 +673,32 @@ span.prevnext:hover {
   ) !important;
 }
 
+/* Distance Measurement */
+#wikimapia-marker-icons-container {
+  span[style*="polygon-markers.png"] {
+    background: none;
+    width: 20px;
+    height: 20px;
+    overflow: visible;
+
+    &::before {
+      position: relative;
+      bottom: 16px;
+      left: -4px;
+      font-family: "Material Symbols Outlined";
+      color: var(--icon);
+      font-size: 16px;
+      content: "\e567";
+    }
+  }
+}
+#wikimapia-controls {
+  span[style*="delete.png"]::before {content: "\e872";}
+  span[style*="arrow-in.png"]::before {content: "\e90b";}
+  span[style*="cross.png"]::before {content: "\e5cd";}
+  span.icon-distance-list::before {content: "\e8ef";}
+}
+
 /* =========================================
    PROFILE PAGE
 ========================================= */
@@ -716,6 +760,7 @@ div.wm-button-tooltip {
     padding-inline: 4px;
     margin: auto;
   }
+  .content {background: none;}
   .right {display: none;}
 }
 
@@ -795,11 +840,6 @@ i {
 }
 i::before {
   color: var(--icon);
-}
-
-#wikimapia-controls {
-  div.wm-noprint span {background-image: none;}
-  span::before {font-family: "Material Symbols Outlined";}
 }
 
 span#wm-icn-28675::before {content: "\e0c8";}
@@ -925,12 +965,6 @@ span.spt-00-98::before {content: "\e84f";}
 span.spt-01-01::before {content: "\eb3e";}
 span.spt-01-03::before {content: "\ea40";}
 span.spt-01-04::before {content: "\e53a";}
-
-/* Distance Measurement */
-span#wm-icn-18389::before {content: "\f69b";}
-span#wm-icn-18392::before {content: "\ef78";}
-span#wm-icn-18386::before {content: "\ea10";}
-span#wm-icn-18383::before {content: "\e166";}
 
 /* Top Navbar */
 i.icon-search::before {
