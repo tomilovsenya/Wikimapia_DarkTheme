@@ -208,6 +208,8 @@ form i.icon-fb::before {
     align-items: center;
     width: fit-content;
     height: 100%;
+    line-height: 44px;
+    vertical-align: middle;
 
     i.control-icon::before {
       vertical-align: middle;
