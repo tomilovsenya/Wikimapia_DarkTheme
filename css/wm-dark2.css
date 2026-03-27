@@ -575,13 +575,18 @@ span.prevnext:hover {
 
 /* Left Panel */
 #wikimapia-controls {
-  .wm-noprint span {background-image: none;}
+  .wm-noprint span {
+    background-image: none;
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
   div[id^="wm-button"] {
     background-color: var(--button);
     border-radius: 4px;
+    overflow: visible;
     &:hover {
       background-color: var(--button-hover);
       color: var(--icon);
+      span[id^="wm-icn"] {transform: scale(1.2);}
     }
     & > div {background: none;}
     div[id$="-content"] { 
@@ -604,7 +609,7 @@ span.prevnext:hover {
     width: 18px;
     height: 18px;
   }
-  span::before {  
+  span::before {
     font-family: "Material Symbols Outlined";
     font-size: 18px;
     line-height: 18px;
