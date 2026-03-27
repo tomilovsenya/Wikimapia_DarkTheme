@@ -42,6 +42,10 @@ html, body, #wikimapia, #map, body.index,
   color: var(--text);
   font-family: var(--fonts);
 }
+input, button, select, textarea {
+  color: var(--text);
+  font-family: var(--fonts);
+}
 
 /* =========================================
    2. TOP PANEL (FLEXBOX + 20% SEARCH)
@@ -140,15 +144,6 @@ html, body, #wikimapia, #map, body.index,
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
-div.map-switchers {
-  background-image: none;
-  width: fit-content;
-  height: fit-content;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
-
 div.form-actions {
   background-color: var(--surface);
 }
@@ -193,6 +188,10 @@ form i.icon-fb::before {
   .icon-resize-full {
     background: none;
     border: none;
+  }
+  .icon-resize-full::before {
+    font-family: "Material Symbols Outlined";
+    content: "\f1ce";
   }
 
   .logo {
@@ -575,7 +574,7 @@ span.prevnext:hover {
 
 /* Left Panel */
 #wikimapia-controls {
-  .wm-noprint span {
+  .wm-noprint span:not(.list-icon) {
     background-image: none;
     transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
   }
@@ -702,6 +701,34 @@ span.prevnext:hover {
   span[style*="arrow-in.png"]::before {content: "\e90b";}
   span[style*="cross.png"]::before {content: "\e5cd";}
   span.icon-distance-list::before {content: "\e8ef";}
+}
+
+/* Map Switcher */
+#wm-MapSwitcher {
+  .map-switchers {
+    background-image: none;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    .yahoo {display: none;}
+  }
+  .list-icon {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+    margin-inline: 5px;
+    filter: invert();
+  }
+  .yandex-icon {background-image: url('https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/yandex/mono.svg');}
+  .bing-icon {background-image: url('https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/microsoft-bing/mono.svg');}
+  .google-icon {background-image: url('https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/google-maps/mono.svg');}
+  .OSM-icon {background-image: url('https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openstreetmap/mono.svg');}
+  .wikimapia-icon {background-image: url('https://static.cdnlogo.com/logos/w/71/wikimapia.svg');filter: none;}
 }
 
 /* =========================================
