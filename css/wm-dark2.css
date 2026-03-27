@@ -36,7 +36,7 @@ html, body, #wikimapia, #map, body.index,
 .inner-page, .main-content, footer > * {
   background: var(--bg);
   color: var(--text);
-  font-family: "PT Sans", sans-serif;
+  font-family: "PT Root UI", "PT Sans", sans-serif;
 }
 
 /* =========================================
@@ -607,17 +607,15 @@ span.btn-small {
   color: var(--link);
   background-color: var(--surface-2);
   border-color: var(--surface-3);
-}
-
-span.btn-small:hover {
-  background-color: var(--surface-3);
-  color: var(--link-hover);
+  &:hover {
+    background-color: var(--surface-3);
+    color: var(--link-hover);
+  }
 }
 
 div.wm-button-tooltip {
   background-color: var(--surface-2);
 }
-
 div.wm-button-tooltip span {
   font-family: PT Root UI !important;
   padding: 0;
@@ -636,6 +634,47 @@ a.btn-small:hover {
 }
 input.btn:hover {
   background-color: var(--surface-3);
+}
+
+.panel-header-left {
+  background: none;
+  margin-right: -33px;
+}
+.panel-header-right {
+  background: none;
+  margin-left: -27px;
+}
+.control-button {
+  background-image: none;
+  background-color: var(--bg);
+}
+.control-button .icon::before {
+  color: var(--text);
+  font-family: "Material Symbols Outlined";
+  line-height: 32px;
+  font-size: 25px;
+}
+.control-button .icon {
+  background-image: none;
+  text-shadow: none;
+  margin: 0;
+}
+.panel-left {
+  .control-button {border-radius: 0 5px 5px 0;}
+  .close > .icon::before {content: "\e5cd";}
+  .hide > .icon::before {content: "\f3d3";}
+  .show > .icon::before {content: "\f3d2";}
+}
+
+.panel-right {
+  .control-button {border-radius: 5px 0 0 5px;}
+  .close > .icon::before {content: "\e5cd";}
+  .hide > .icon::before {content: "\f3d2";}
+  .show > .icon::before {content: "\f3d3";}
+}
+
+span.close {
+  color: var(--text);
 }
 
 /* =========================================
