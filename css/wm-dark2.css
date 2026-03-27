@@ -28,6 +28,10 @@ img.wikimapia-image-tile {
   --link: #90caf9;
   --link-hover: #bbdefb;
   --icon: #FF0000;
+  --button: #1e1e1edc;
+  --button-hover: #1e1e1e;
+
+  --fonts: "PT Root UI", "PT Sans", sans-serif;
 
   --wm-logo: url("https://raw.githubusercontent.com/tomilovsenya/Wikimapia_DarkTheme/refs/heads/main/res/Wikimapia_logo.svg");
 }
@@ -36,7 +40,7 @@ html, body, #wikimapia, #map, body.index,
 .inner-page, .main-content, footer > * {
   background: var(--bg);
   color: var(--text);
-  font-family: "PT Root UI", "PT Sans", sans-serif;
+  font-family: var(--fonts);
 }
 
 /* =========================================
@@ -566,6 +570,92 @@ span.prevnext:hover {
 }
 
 /* =========================================
+    LEFT PANEL
+========================================= */
+
+#wikimapia-controls {
+  :is(#wm-Geolocation, #distance-measure-button, #wm-Add) > div {
+    background-color: var(--button);
+    border-radius: 4px;
+    &:hover {
+      background-color: var(--button-hover);
+      color: var(--icon);
+    }
+    & > div {background: none;}
+  }
+  [id^="wm-icn"] {
+    width: 18px;
+    height: 18px;
+  }
+  span::before {
+    font-size: 18px;
+    line-height: 18px;
+  }
+}
+
+#distance-measure-button {top: 310px;}
+#wm-Geolocation .wm-noprint span::before { content: "\e55c"; }
+#wm-Add .wm-noprint span::before { content: "\e567"; }
+#distance-measure-button .wm-noprint span::before { content: "\f69b"; }
+
+#wm-zoomControl {
+  background-color: var(--button);
+  border-radius: 4px;
+  width: 30px;
+  height: 232px;
+  left: 28px;
+  div:not(#wm-zoomControl-slide-track) {
+    background-image: none;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &::before {
+      font-family: "Material Symbols Outlined";
+      font-size: 20px;
+      color: var(--text);
+    }
+    &:hover {
+      &::before {color: var(--icon);}
+    }
+  }
+  #wm-zoomControl-hints-container {
+    span {font-family: var(--fonts);}
+    left: 32px;
+  }
+  .zoomcontrol-hint span {
+    background-color: var(--button);
+    padding-inline: 2px;
+    border-radius: 4px;
+  }
+  .zoomcontrol-hint > span:last-child {display: none;}
+}
+#wm-zoomControl-zoom-in::before {content: "\e8ff";}
+#wm-zoomControl-zoom-out {top: 206px;}
+#wm-zoomControl-zoom-out::before {content: "\e900";}
+#wm-zoomControl-slider {
+  width: 30px;
+  height: 10px;
+  border-radius: 4px;
+  background-color: var(--text);
+}
+#wm-zoomControl-slide-track {
+  width: 30px;
+  height: 180px;
+  opacity: 25%;
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: 18px 100%;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 5px,      /* Space between lines */
+    var(--text) 5px, /* The line color (light grey/white) */
+    var(--text)  8px  /* The line thickness (1px) */
+  ) !important;
+}
+
+/* =========================================
    PROFILE PAGE
 ========================================= */
 
@@ -617,12 +707,16 @@ span.btn-small {
 }
 
 div.wm-button-tooltip {
-  background-color: var(--surface-2);
-}
-div.wm-button-tooltip span {
-  font-family: PT Root UI !important;
-  padding: 0;
-  margin: 0;
+  background-color: var(--button);
+  width: max-content;
+  height: fit-content;
+  box-sizing: border-box;
+  span {
+    font-family: var(--fonts) !important;
+    padding-inline: 4px;
+    margin: auto;
+  }
+  .right {display: none;}
 }
 
 a.btn {
@@ -676,9 +770,7 @@ input.btn:hover {
   .show > .icon::before {content: "\f3d3";}
 }
 
-span.close {
-  color: var(--text);
-}
+span.close {color: var(--text);}
 
 /* =========================================
    ICONS
@@ -693,23 +785,21 @@ span.menu-icon {
   color: var(--icon);
   line-height: 20px;
 }
-
-#wikimapia-controls div {
-  /* background-image: none; */
-  /* background-color: pink; */
-  /* display: flex; */
-}
-
-#wikimapia-controls span {
-  /* background-image: none; */
-  /* font-family: "Material Symbols Outlined"; */
-  /* font-size: 16px; */
-  /* background-color: var(--surface-3); */
-}
-
-#wikimapia-controls div.wm-noprint div span {
-  background-image: none;
+/* div.panel-left * i { */
+i {
+  background: none;
   font-family: "Material Symbols Outlined";
+  font-style: normal;
+  color: var(--icon);
+  font-size: 20px;
+}
+i::before {
+  color: var(--icon);
+}
+
+#wikimapia-controls {
+  div.wm-noprint span {background-image: none;}
+  span::before {font-family: "Material Symbols Outlined";}
 }
 
 span#wm-icn-28675::before {content: "\e0c8";}
@@ -727,18 +817,6 @@ div.wm-panel-insideheader {
   li.item-1 span.menu-icon::before {content: "\e889";}
   li.item-2 span.menu-icon::before {content: "\e55e";}
   a {line-height: 16px;}
-}
-
-/* div.panel-left * i { */
-i {
-  background: none;
-  font-family: "Material Symbols Outlined";
-  font-style: normal;
-  color: var(--icon);
-  font-size: 20px;
-}
-i::before {
-  color: var(--icon);
 }
 
 div#edit-actions span.btn {
@@ -804,9 +882,6 @@ span.menu-spt::before {
   color: var(--icon);
   margin: 0;
 }
-span.categosry-name {
-  /* display: inline-flex; */
-}
 
 span.spt-empty-category::before {content: "\e896";}
 span.spt-00-04::before {content: "\ebbc";}
@@ -852,43 +927,14 @@ span.spt-01-03::before {content: "\ea40";}
 span.spt-01-04::before {content: "\e53a";}
 
 /* Distance Measurement */
-span#wm-icn-18389::before {
-  content: "\f69b";
-}
-span#wm-icn-18392::before {
-  content: "\ef78";
-}
-span#wm-icn-18386::before {
-  content: "\ea10";
-}
-span#wm-icn-18383::before {
-  content: "\e166";
-}
-
-/* Left Panel */
-div.geolocation div.wm-noprint > div > span::before { 
-  content: "\e55c";
-  font-size: 16px;
-}
-div.distance-measure div.wm-noprint > div > span::before { 
-  content: "\f69b";
-  font-size: 16px;
-}
-div.add-place div.wm-noprint > div > span::before { 
-  content: "\e567";
-  font-size: 16px;
-}
-
-/* div.distance-measure > div > div {
-  display: flex;
-  width: 30px;
-  height: 30px;
-  background-color: var(--surface-2);
-  border-radius: 5px;
-} */
+span#wm-icn-18389::before {content: "\f69b";}
+span#wm-icn-18392::before {content: "\ef78";}
+span#wm-icn-18386::before {content: "\ea10";}
+span#wm-icn-18383::before {content: "\e166";}
 
 /* Top Navbar */
 i.icon-search::before {
+  vertical-align: middle;
   font-size: 15px;
   content: "\e8b6";
 }
