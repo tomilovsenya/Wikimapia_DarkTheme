@@ -28,7 +28,7 @@
 
 body * {
   color: var(--text);
-  font-family: "PT Sans", sans-serif;
+  font-family: "PT Root UI", "PT Sans", sans-serif;
 }
 
 span, a, li { text-shadow: none; }
@@ -52,6 +52,24 @@ button {
 
 input#urlfiles_rewritable {
   background-color: var(--surface-3);
+}
+
+/* Fullscreen Photo */
+div.ui-widget-overlay {
+  background-color: var(--bg);
+}
+div.ui-dialog-titlebar {
+  background-color: var(--surface-2);
+  color: var(--text);
+}
+a.full-size {
+  background: none;
+  padding: 0;
+  vertical-align: middle;
+  &::before {
+    font-size: 12px;
+    content: "\e5d0";
+  }
 }
 
 /* Icons */
