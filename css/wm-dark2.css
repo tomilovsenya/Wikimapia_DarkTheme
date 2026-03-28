@@ -42,7 +42,7 @@ html, body, #wikimapia, #map, body.index,
   color: var(--text);
   font-family: var(--fonts);
 }
-input, button, select, textarea {
+input, button, select, textarea, strong, span {
   color: var(--text);
   font-family: var(--fonts);
 }
@@ -119,6 +119,7 @@ input, button, select, textarea {
     background-image: none;
   }
   i.icon-search::before {color: white;}
+  #search-submit {height: 21px;}
   #search-input, 
   #search-submit {margin-top: 0;}
 }
@@ -128,7 +129,7 @@ input, button, select, textarea {
 }
 
 /* =========================================
-   3. PANELS & WINDOWS
+   3. PANELS, WINDOWS AND COMMON
 ========================================= */
 
 .wm-window, .wm-panel, .wm-panel-header, 
@@ -144,17 +145,35 @@ input, button, select, textarea {
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
-div.form-actions {
-  background-color: var(--surface);
+div.form-actions {background-color: var(--surface);}
+
+/* Tabs */
+.nav-tabs {border-color: var(--border);}
+.nav-tabs > li {
+  margin-bottom: 0;
+  &.active > :is(a, span) {
+    border-color: var(--border-active);
+    background-color: var(--surface-2);
+    color: var(--text);
+  }
+  & > :is(a, span):hover {
+    background-color: var(--surface-3);
+    color: var(--link-hover);
+  }
+}
+
+.section-header {border-color: var(--border);}
+
+.table-striped tbody>tr:nth-child(odd)>td, 
+.table-striped tbody>tr:nth-child(odd)>th {
+    background-color: var(--surface-2);
 }
 
 /* Links */
 a, .likelink {
   color: var(--link);
   text-decoration: none;
-}
-a:hover, .likelink:hover {
-  color: var(--link-hover);
+  &:hover {color: var(--link-hover);}
 }
 
 /* =========================================
@@ -354,13 +373,13 @@ section.alertify-dialog nav {
 .search-result-item:hover,
 .searchlist li:hover {
   background-color: var(--surface-3);
-  color: #ffffff;
+  color: var(--text);
 }
 
 /* Language and Select2 Dropdowns */
 .select2-results .select2-highlighted {
   background-color: var(--surface-3);
-  color: #ffffff;
+  color: var(--text);
 }
 
 /* User Profile Menu Items */
@@ -373,7 +392,7 @@ section.alertify-dialog nav {
 .page-button:hover,
 span.prevnext:hover {
   background-color: var(--surface-3);
-  color: #ffffff;
+  color: var(--text);
 }
 
 /* =========================================
@@ -752,33 +771,39 @@ span.prevnext:hover {
 div.profile-tabs-row {
   background-color: var(--bg);
   box-shadow: none;
+  a {background-color: var(--surface);}
 }
 
-div.profile-tabs-row a {
-  background-color: var(--surface);
+#profile-instant-controls {
+  background-color: var(--surface-2);
+  a {
+    display: inline-flex;
+    gap: 10px;
+  }
+  a:hover {background-color: var(--surface-3);}
 }
-div.profile-tabs-row li.active a {
+
+#fullsize-avatar,
+#profile-avatar {
+  background-color: var(--surface-2);
+  border-color: var(--border);
+}
+
+.votes-block {
+  background-color: var(--surface-2);
+  border-color: var(--border);
+  span {color: var(--text);}
+}
+
+.messages-list td {
+  text-shadow: none;
+  border-color: var(--border);
+  color: var(--text);
   background-color: var(--surface-2);
 }
-div.profile-tabs-row li a:hover {
-  background-color: var(--surface-3);
-  color: var(--link-hover);
-}
 
-div#profile-instant-controls {
+.awards-page .you-awards h2 {
   background-color: var(--surface-2);
-}
-div#profile-instant-controls a:hover {
-  background-color: var(--surface-3);
-}
-div#profile-instant-controls a {
-  display: inline-flex;
-  gap: 10px;
-} 
-
-/* Place Context Menu */
-div#object-context-menu ul {
-  width: max-content;
 }
 
 /* =========================================
@@ -810,18 +835,18 @@ div.wm-button-tooltip {
   .right {display: none;}
 }
 
-a.btn {
+.btn,
+.btn-mini {
   background: none;
   background-color: var(--surface-2);
   border-color: var(--surface-3);
+  width: fit-content;
+  height: fit-content;
   display: inline-flex;
-  gap: 5px;
-}
-a.btn-small:hover {
-  background-color: var(--surface-3);
-}
-input.btn:hover {
-  background-color: var(--surface-3);
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  &:hover {background-color: var(--surface-3);}
 }
 
 .panel-header-left {
@@ -863,8 +888,11 @@ input.btn:hover {
 
 span.close {color: var(--text);}
 
+/* Place Context Menu */
+#object-context-menu ul {width: max-content;}
+
 /* =========================================
-   ICONS
+    ICONS
 ========================================= */
 
 span.menu-icon {
@@ -882,10 +910,9 @@ i {
   font-family: "Material Symbols Outlined";
   font-style: normal;
   color: var(--icon);
-  font-size: 20px;
-}
-i::before {
-  color: var(--icon);
+  text-shadow: none;
+  :not(.btn-mini) > & {font-size: 20px;}
+  &::before {color: var(--icon);}
 }
 
 span#wm-icn-28675::before {content: "\e0c8";}
@@ -938,7 +965,12 @@ i.icon-camera::before {content: "\e43e";}
 i.icon-align-justify::before {content: "\e745";}
 i.icon-map-marker::before {content: "\f05f";}
 i.icon-picture::before {content: "\e851";}
+
 i.icon-edit::before {content: "\f4fa";}
+i.icon-resize-full::before {content: "\e5d0";}
+i.icon-ok::before {content: "\e161";}
+i.icon-trash::before {content: "\e872";}
+i.icon-upload::before {content: "\e9fc";}
 
 span.title::before {
   font-family: "Material Symbols Outlined";
@@ -954,6 +986,17 @@ span.wikipedia span.title::before {
   content: "\F8CC";
 }
 div.summary span.title::before {content: "\e89c";}
+
+span:has(img.msg-indicator) {
+  &::before {
+    font-family: "Material Symbols Outlined";
+    font-size: 16px;
+    color: var(--icon);
+    vertical-align: middle;
+    content: "\e158";
+  }
+  img {display: none;}
+}
 
 /* Place Categories */
 span.menu-spt {
