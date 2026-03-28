@@ -572,7 +572,6 @@ span.prevnext:hover {
       background: none;
 
       &::before {
-        font-family: "Material Symbols Outlined";
         font-size: 18px;
         height: 18px;
         width: 18px;
@@ -618,7 +617,6 @@ span.prevnext:hover {
       justify-content: center; 
       align-items: center;
       span::before {  
-        font-family: "Material Symbols Outlined";
         font-size: 18px;
         line-height: 18px;
       }
@@ -630,7 +628,6 @@ span.prevnext:hover {
     height: 18px;
   }
   span::before {
-    font-family: "Material Symbols Outlined";
     font-size: 18px;
     line-height: 18px;
   }
@@ -654,7 +651,6 @@ span.prevnext:hover {
     justify-content: center;
     align-items: center;
     &::before {
-      font-family: "Material Symbols Outlined";
       font-size: 20px;
       color: var(--text);
     }
@@ -710,8 +706,6 @@ span.prevnext:hover {
       position: relative;
       bottom: 16px;
       left: -4px;
-      font-family: "Material Symbols Outlined";
-      color: var(--icon);
       font-size: 16px;
       content: "\e567";
     }
@@ -863,7 +857,6 @@ div.wm-button-tooltip {
 }
 .control-button .icon::before {
   color: var(--text);
-  font-family: "Material Symbols Outlined";
   line-height: 32px;
   font-size: 25px;
 }
@@ -895,29 +888,25 @@ span.close {color: var(--text);}
     ICONS
 ========================================= */
 
+::before {
+  font-family: "Material Symbols Outlined";
+  color: var(--icon);
+}
+
 span.menu-icon {
   background: none;
-  font-family: "Material Symbols Outlined";
   width: 20px;
   height: 20px;
   font-size: 20px;
-  color: var(--icon);
   line-height: 20px;
 }
 /* div.panel-left * i { */
 i {
   background: none;
-  font-family: "Material Symbols Outlined";
   font-style: normal;
-  color: var(--icon);
   text-shadow: none;
   :not(.btn-mini) > & {font-size: 20px;}
-  &::before {color: var(--icon);}
 }
-
-span#wm-icn-28675::before {content: "\e0c8";}
-span#wm-icn-82::before {content: "\ef3a";}
-span#wm-icn-85::before {content: "\f69b";}
 
 /* Place Info */
 div.wm-panel-insideheader {
@@ -973,9 +962,7 @@ i.icon-trash::before {content: "\e872";}
 i.icon-upload::before {content: "\e9fc";}
 
 span.title::before {
-  font-family: "Material Symbols Outlined";
   font-size: 20px;
-  color: var(--icon);
 }
 
 span.address span.title::before {content: "\e158";}
@@ -989,9 +976,7 @@ div.summary span.title::before {content: "\e89c";}
 
 span:has(img.msg-indicator) {
   &::before {
-    font-family: "Material Symbols Outlined";
     font-size: 16px;
-    color: var(--icon);
     vertical-align: middle;
     content: "\e158";
   }
@@ -1003,9 +988,7 @@ span.menu-spt {
   background: none;
   margin-right: 10px;
   ::before {
-    font-family: "Material Symbols Outlined";
     font-size: 20px;
-    color: var(--icon);
     margin: 0;
   }
 }
