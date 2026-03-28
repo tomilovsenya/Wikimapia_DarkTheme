@@ -133,7 +133,8 @@ input, button, select, textarea, strong, span {
 ========================================= */
 
 .wm-window, .wm-panel, .wm-panel-header, 
-.wm-window-header, #placeinfo, .panel-with-menu {
+.wm-window-header, #placeinfo, .panel-with-menu,
+.section-header, .well, .wm-panel-insideheader {
   background: var(--surface);
   color: var(--text);
   border-color: var(--border);
@@ -161,8 +162,6 @@ div.form-actions {background-color: var(--surface);}
     color: var(--link-hover);
   }
 }
-
-.section-header {border-color: var(--border);}
 
 .table-striped tbody>tr:nth-child(odd)>td, 
 .table-striped tbody>tr:nth-child(odd)>th {
@@ -1051,7 +1050,6 @@ i.icon-search::before {
   li.n-0-0-3 .menu-icon::before { content: "\e570"; }
   li.n-0-0-4 .menu-icon::before { content: "\e532"; }
   li.n-0-0-5 .menu-icon::before { content: "\f084"; }
-
   /* Categories */
   li.n-0-1 .menu-icon::before { content: "\f437"; }
   li.n-0-1-0 .menu-icon::before { content: "\f1cc"; }
@@ -1069,7 +1067,6 @@ i.icon-search::before {
   li.n-0-1-12 .menu-icon::before { content: "\e58a"; }
   li.n-0-1-13 .menu-icon::before { content: "\ea12"; }
   li.n-0-1-14 .menu-icon::before { content: "\e546"; }
-
   /* Profile */
   li.n-0-2 span.menu-icon::before { content: "\e851"; }
   li.n-0-2-0 span.menu-icon::before { content: "\e853"; }
@@ -1091,6 +1088,8 @@ i.icon-search::before {
   li.n-0-2-12-5 span.menu-icon::before { content: "\f3e6"; }
   li.n-0-2-12-6 span.menu-icon::before { content: "\e64c"; }
   li.n-0-2-13 span.menu-icon::before { content: "\e9ba"; }
+  /* Lang */
+  li.n-0-3-4 span.menu-icon::before { content: "\e894"; }
 }
 
 div#object-context-menu { 
