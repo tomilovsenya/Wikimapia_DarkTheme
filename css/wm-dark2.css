@@ -79,7 +79,7 @@ input, button, select, textarea, strong, span {
 }
 
 /* Navigation Links */
-#wikimapia-top-panel { 
+#wikimapia-top-panel {
   .wm-menu {
     position: relative;
     display: flex;
@@ -119,14 +119,18 @@ input, button, select, textarea, strong, span {
     background-image: none;
   }
   i.icon-search::before {color: white;}
-  #search-submit {height: 21px;}
+  #search-submit {
+    height: 100%;
+    ::before {
+      vertical-align: middle;
+      line-height: 100%;
+    }
+  }
   #search-input, 
   #search-submit {margin-top: 0;}
 }
 
-#top-panel-facebook-button {
-  display: none;
-}
+#top-panel-facebook-button {display: none;}
 
 /* =========================================
    3. PANELS, WINDOWS AND COMMON
