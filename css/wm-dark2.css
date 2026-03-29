@@ -663,6 +663,21 @@ span.prevnext:hover {
 
 .adv-comments {display: none;}
 
+/* Changes History */
+
+.page-content-history del,
+#history-list-table del {
+    background: #b94a4880;
+    color: var(--text);
+}
+.page-content-history ins,
+#history-list-table ins {
+    background: #46884780;
+    color: var(--text);
+}
+
+#history-table .byfieldmenu_right {background-color: var(--surface-2);}
+
 /* =========================================
     WIKIMAPIA CONTROLS
 ========================================= */
