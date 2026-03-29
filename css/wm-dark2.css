@@ -17,6 +17,10 @@ img.wikimapia-image-tile {
 ========================================= */
 :root {
   --bg: #1e1e1e;
+  --bg-alert: #75800080;
+  --bg-success: #00800080;
+  --bg-danger: #80000080;
+  --bg-info: #001a8080;
   --surface: #1e1e1e;
   --surface-2: #2d2d2d;
   --surface-3: #383838;
@@ -30,6 +34,7 @@ img.wikimapia-image-tile {
   --icon: #FF0000;
   --button: #1e1e1edc;
   --button-hover: #1e1e1e;
+  --badge: #3fc1c040;
 
   --fonts: "PT Root UI", "PT Sans", sans-serif;
 
@@ -137,19 +142,20 @@ input, button, select, textarea, strong, span {
   #search-submit {margin-top: 0;}
 }
 
-
 #top-panel-facebook-button {display: none;}
 
 /* =========================================
-   3. PANELS, WINDOWS AND COMMON
+   3. PANELS, WINDOWS AND BOOTSTRAP COMMON
 ========================================= */
+
+*:not(b.caret) {border-color: var(--border);}
 
 .wm-window, .wm-panel, .wm-panel-header, 
 .wm-window-header, #placeinfo, .panel-with-menu,
-.section-header, .well, .wm-panel-insideheader {
+.section-header, .well, .wm-panel-insideheader, 
+.form-actions {
   background: var(--surface);
   color: var(--text);
-  border-color: var(--border);
 }
 
 .dropdown-menu, .context-menu ul, #categories-suggest {
@@ -158,10 +164,44 @@ input, button, select, textarea, strong, span {
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
-div.form-actions {background-color: var(--surface);}
+.form-actions {background-color: var(--surface);}
+.breadcrumb {
+  background-color: var(--surface-2);
+  li {text-shadow: none;}
+}
+
+/* Pagination */
+.pagination ul > li {
+  a, span {
+    user-select: none;
+    background-color: var(--surface-2);
+    &.inactive {color: var(--text-muted);}
+    li:not(.disabled, .active) > &:not(.inactive):hover {
+      color: var(--link-hover);
+      background-color: var(--surface-3);
+    }
+  }
+}
+
+/* Pages Buttons */
+.pager li {
+  a, span {
+    user-select: none;
+    background-color: var(--surface-2);
+    cursor: pointer;
+    li.disabled > & {
+      color: var(--text-muted);
+      background-color: transparent;
+      &:hover {cursor: not-allowed;};
+    };
+    li:not(.disabled) > &:hover {
+      background-color: var(--surface-3);
+      color: var(--link-hover);
+    }
+  }
+}
 
 /* Tabs */
-.nav-tabs {border-color: var(--border);}
 .nav-tabs > li {
   margin-bottom: 0;
   &.active > :is(a, span) {
@@ -175,10 +215,25 @@ div.form-actions {background-color: var(--surface);}
   }
 }
 
+/* Tables */
 .table-striped tbody>tr:nth-child(odd)>td, 
-.table-striped tbody>tr:nth-child(odd)>th {
-    background-color: var(--surface-2);
+.table-striped tbody>tr:nth-child(odd)>th {background-color: var(--surface-2);}
+.wm-panel-content ul li:hover {background-color: var(--surface-3);}
+
+ul.nav-list {
+  a:hover, a:focus {background-color: var(--surface-3);}
+  i {margin-right: 5px;}
 }
+
+/* Alerts */
+.alert {
+  background-color: var(--bg-alert);
+  color: var(--text-muted);
+  text-shadow: none;
+}
+.alert-success {background-color: var(--bg-success);}
+.alert-info {background-color: var(--bg-info);}
+.alert-danger, .alert-error {background-color: var(--bg-danger);}
 
 /* Links */
 a, .likelink {
@@ -313,13 +368,23 @@ input, textarea, select, .select2-choice, .select2-drop {
   border-top: 1px solid var(--border);
   display: flex;
   align-items: center;
-}
-
-.status-bar .content {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0 10px;
+  i {
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    line-height: 20px;
+    vertical-align: middle;
+  }
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    padding: 0 10px;
+  }
 }
 
 #wm-tooltip, .map-tooltip {
@@ -532,7 +597,6 @@ span.prevnext:hover {
     strong.category, a {
       background: none;
       background-color: var(--surface-2);
-      border-color: var(--border);
       color: var(--text-muted);
 
       &:hover { background-color: var(--surface-3); }
@@ -541,11 +605,8 @@ span.prevnext:hover {
 
   /* Edit Actions Section */
   #edit-actions {
-    border-color: var(--border);
-
     span {
       background: none;
-      border-color: var(--border);
       background-color: var(--surface-2);
       color: var(--link);
 
@@ -569,13 +630,9 @@ span.prevnext:hover {
   }
 
   .accordion-group * span.title, 
-  li {
-    color: var(--text);
-  }
+  li {color: var(--text);}
 
-  .accordion-heading:hover {
-    background-color: var(--surface-3);
-  }
+  .accordion-heading:hover {background-color: var(--surface-3);}
 
   /* Search Categories List */
   #searchtcatsdiv {
@@ -598,6 +655,13 @@ span.prevnext:hover {
     }
   }
 }
+
+.place-tabs li a {
+  text-shadow: none;
+  background-color: var(--surface-2);
+}
+
+.adv-comments {display: none;}
 
 /* =========================================
     WIKIMAPIA CONTROLS
@@ -722,12 +786,6 @@ span.prevnext:hover {
     }
   }
 }
-#wikimapia-controls {
-  span[style*="delete.png"]::before {content: "\e872";}
-  span[style*="arrow-in.png"]::before {content: "\e90b";}
-  span[style*="cross.png"]::before {content: "\e5cd";}
-  span.icon-distance-list::before {content: "\e8ef";}
-}
 
 /* Map Switcher */
 #wm-MapSwitcher {
@@ -781,34 +839,41 @@ div.profile-tabs-row {
 
 #profile-instant-controls {
   background-color: var(--surface-2);
-  a {
-    display: inline-flex;
-    gap: 10px;
-  }
-  a:hover {background-color: var(--surface-3);}
 }
 
 #fullsize-avatar,
 #profile-avatar {
   background-color: var(--surface-2);
-  border-color: var(--border);
 }
 
 .votes-block {
   background-color: var(--surface-2);
-  border-color: var(--border);
   span {color: var(--text);}
 }
 
 .messages-list td {
   text-shadow: none;
-  border-color: var(--border);
   color: var(--text);
   background-color: var(--surface-2);
 }
 
-.awards-page .you-awards h2 {
-  background-color: var(--surface-2);
+.awards-page .you-awards h2 {background-color: var(--surface-2);}
+.is_finished {color: var(--text-muted);}
+
+.badge {
+  background-color: var(--badge);
+  padding: 0;
+  white-space: initial;
+}
+
+.label {
+  background-color: var(--button);
+  margin: 0;
+  text-shadow: none;
+}
+.label-info {
+  color: var(--bg);
+  background-color: var(--link);
 }
 
 /* =========================================
@@ -851,7 +916,8 @@ div.wm-button-tooltip {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  &:hover {background-color: var(--surface-3);}
+  &:not(&[disabled*="true"]):hover {background-color: var(--surface-3);}
+  &[disabled*="true"]:hover {cursor: not-allowed;}
 }
 
 .panel-header-left {
@@ -899,7 +965,7 @@ span.close {color: var(--text);}
     ICONS
 ========================================= */
 
-::before {
+::before, ::after {
   font-family: "Material Symbols Outlined";
   color: var(--icon);
 }
@@ -953,28 +1019,48 @@ div#permalink-sharing a:hover {
 }
 a.btn-gplus, a.btn-vk {display: none;}
 
-i.icon-fb::before {content: "\F344";}
-i.icon-twitter::before {content: "\F5EF";}
-
 i.spt-polygon::before {content: "\ebbb";}
 i.spt-photo::before {content: "\e43e";}
 i.spt-delete::before {content: "\e872";}
 i.spt-lock::before {content: "\e897";}
-
+i.icon-fb::before {content: "\F344";}
+i.icon-twitter::before {content: "\F5EF";}
 i.icon-camera::before {content: "\e43e";}
 i.icon-align-justify::before {content: "\e745";}
 i.icon-map-marker::before {content: "\f05f";}
 i.icon-picture::before {content: "\e851";}
-
 i.icon-edit::before {content: "\f4fa";}
 i.icon-resize-full::before {content: "\e5d0";}
 i.icon-ok::before {content: "\e161";}
 i.icon-trash::before {content: "\e872";}
 i.icon-upload::before {content: "\e9fc";}
+i.icon-plus::before {content: "\e145";}
+i.icon-envelope::before {content: "\e158";}
+i.icon-globe::before {content: "\e64c";}
 
-span.title::before {
-  font-size: 20px;
+span[style*="delete.png"]::before {content: "\e872";}
+span[style*="arrow-in.png"]::before {content: "\e90b";}
+span[style*="cross.png"]::before {content: "\e5cd";}
+span.icon-distance-list::before {content: "\e8ef";}
+
+img[src*="user.png"] {
+  display: none;
+  & + a::before {
+    font-size: 18px;
+    line-height: 18px;
+    vertical-align: middle;
+    content: "\e7fd";
+  }
 }
+
+i.badge-logo {
+  width: 16px;
+  height: 16px;
+  background-image: url('https://static.cdnlogo.com/logos/w/71/wikimapia.svg');
+  background-size: cover;
+}
+
+span.title::before {font-size: 20px;}
 
 span.address span.title::before {content: "\e158";}
 span.categories span.title::before {content: "\e574";}
@@ -995,13 +1081,18 @@ span:has(img.msg-indicator) {
 }
 
 /* Place Categories */
-span.menu-spt {
+.menu-spt {
   background: none;
   margin-right: 10px;
   ::before {
     font-size: 20px;
     margin: 0;
   }
+}
+
+.status-bar .menu-spt {
+  margin: 0;
+  font-size: 25px;
 }
 
 .spt-empty-category::before {content: "\e896";}
@@ -1121,3 +1212,10 @@ div#object-context-menu {
 
 i.icon-chevron-right::before { content: "\e315"; }
 i.icon-chevron-down::before { content: "\e313"; }
+
+#wikimapia-marker-icons-container {
+  span[style*="category-marker.png"] {
+    background: none;
+    ::before { content: "\f6ea"; } 
+  }
+}
