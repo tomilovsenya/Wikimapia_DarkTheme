@@ -287,13 +287,10 @@ form i.icon-fb::before {
 }
 
 /* =========================================
-    IMAGE VIEWER (Nested)
+    IMAGE VIEWER
 ========================================= */
 #swipebox-overlay {
-  /* Common variables for the group */
   --icon-size: 80px;
-
-  /* Use & to refer to the parent, or just list children */
   .swipebox-caption {
     width: 100%;
     display: flex;
@@ -302,7 +299,6 @@ form i.icon-fb::before {
     align-items: center;
     padding-inline: 20px;
   }
-
   .content, 
   .icon-resize-full {
     background: none;
@@ -312,13 +308,11 @@ form i.icon-fb::before {
     font-family: "Material Symbols Outlined";
     content: "\f1ce";
   }
-
   .logo {
     background: var(--wm-logo) center / contain no-repeat;
     position: relative;
     width: 150px;
   }
-
   #swipebox-close {
     position: relative;
     inset: 0;
@@ -329,20 +323,16 @@ form i.icon-fb::before {
     height: 100%;
     line-height: 44px;
     vertical-align: middle;
-
     i.control-icon::before {
       vertical-align: middle;
       font-size: 44px;
       content: "\f508";
     }
   }
-
   .swipebox-action {
     display: flex;
-
     &.right { justify-content: flex-end; }
     .disabled { display: none; }
-
     a {
       max-width: 100px;
       position: relative;
@@ -350,8 +340,12 @@ form i.icon-fb::before {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      &[style*="none"] {display: none;}
+      &:hover i {
+        transition: var(--tr-icon-hover);
+        transform: scale(1.2);
+      }
     }
-
     i.control-icon {
       margin: 0;
       inset: 0;
@@ -359,13 +353,10 @@ form i.icon-fb::before {
       height: var(--icon-size);
     }
   }
-
-  /* Target the icons globally within the overlay */
   i.control-icon::after {
     color: white;
     font-size: var(--icon-size);
   }
-
   #swipebox-prev i.control-icon::after { content: "\e314"; }
   #swipebox-next i.control-icon::after { content: "\e315"; }
   #swipebox-next { align-items: flex-end; }
