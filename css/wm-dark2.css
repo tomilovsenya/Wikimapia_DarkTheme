@@ -51,7 +51,7 @@ input, button, select, textarea, strong, span {
 }
 
 /* =========================================
-   2. TOP PANEL (FLEXBOX + 20% SEARCH)
+    2. TOP PANEL (FLEXBOX + 20% SEARCH)
 ========================================= */
 
 /* Logo */
@@ -77,7 +77,6 @@ input, button, select, textarea, strong, span {
   gap: 20px;
   justify-content: flex-start;
   align-items: center;
-
   ul, ul a {margin: 0;}
 }
 
@@ -236,6 +235,28 @@ ul.nav-list {
 .alert-success {background-color: #00800080;}
 .alert-info {background-color: #2d698780;}
 .alert-danger, .alert-error {background-color: #80000080;}
+
+.alertify-log-info {
+  color: var(--text-muted);
+  background: #2d698780;
+}
+.alertify-log-error {
+  color: black;
+  background: #80000080;
+}
+.alertify-log-error .close {color: #222}
+.alertify-log-success {
+  color: var(--text-muted);
+  background: #dff0d880;
+}
+
+.ui-state-error,
+.ui-widget-content .ui-state-error,
+.ui-widget-header .ui-state-error {
+  border: 1px solid #cd0a0a;
+  background: #b94a4880 50% 50% repeat-x;
+  color: var(--text-muted);
+}
 
 /* Labels and Badges */
 .badge {
@@ -598,37 +619,28 @@ span.prevnext:hover {
   #comment-input { width: 98%; }
   .edit-form-description-input textarea { width: 100%; }
 
-  /* Then group the shared properties */
+  span, a, li { text-shadow: none; }
+  a:hover { background-color: var(--surface-3); }
+
   #comment-input, 
   .edit-form-description-input textarea {
     min-height: 100px;
     max-height: 300px;
   }
-
-  /* Panel & Global resets */
-  span, a, li { text-shadow: none; }
-  a:hover { background-color: var(--surface-3); }
-
-  /* Surface-2 Background Group */
   #placeinfo-locationtree,
   .edit-object-breadcrumb,
   #edit-actions,
   #searchtcatsdiv ul {
     background-color: var(--surface-2);
   }
-
-  /* Categories Section */
   #placeinfo-categories {
     strong.category, a {
       background: none;
       background-color: var(--surface-2);
       color: var(--text-muted);
-
       &:hover { background-color: var(--surface-3); }
     }
   }
-
-  /* Edit Actions Section */
   #edit-actions {
     span {
       background: none;
@@ -642,16 +654,28 @@ span.prevnext:hover {
     }
   }
 
-  /* Icons Consistently Sized */
   i[class^="icon-"]::before { font-size: 16px; }
   .icon-tags::before { content: "\e0ee"; }
   .icon-tag::before  { content: "\f756"; }
   .icon-plus::before { content: "\e567"; }
 
-  /* Sharing & Misc */
-  #permalink-sharing a {
-    background: none;
-    background-color: var(--surface-2);
+
+  #permalink-sharing {
+    .input-prepend {height: 24px;}
+    a { 
+      height: 100%;
+      background: none;
+      background-color: var(--surface-2);
+      margin: 0;
+      &:hover {background-color: var(--surface-3);}
+    }
+    i::before {
+      font-size: 16px;
+      font-family: "bootstrap-icons";
+      line-height: 24px;
+      vertical-align: middle;
+    }
+    a.btn-gplus, a.btn-vk {display: none;}
   }
 
   .accordion-group * span.title, 
@@ -659,7 +683,6 @@ span.prevnext:hover {
 
   .accordion-heading:hover {background-color: var(--surface-3);}
 
-  /* Search Categories List */
   #searchtcatsdiv {
     li a {
       background: none;
@@ -874,7 +897,7 @@ span.prevnext:hover {
 }
 
 /* =========================================
-   PROFILE PAGE
+    PROFILE PAGE
 ========================================= */
 
 div.profile-tabs-row {
@@ -1067,15 +1090,6 @@ div.accordion-group span.title {
   gap: 5px;
 }
 
-div#permalink-sharing i::before {
-  font-size: 16px;
-  font-family: "bootstrap-icons";
-}
-div#permalink-sharing a:hover {
-  background-color: var(--surface-3);
-}
-a.btn-gplus, a.btn-vk {display: none;}
-
 i.spt-polygon::before {content: "\ebbb";}
 i.spt-photo::before {content: "\e43e";}
 i.spt-delete::before {content: "\e872";}
@@ -1094,6 +1108,7 @@ i.icon-upload::before {content: "\e9fc";}
 i.icon-plus::before {content: "\e145";}
 i.icon-envelope::before {content: "\e158";}
 i.icon-globe::before {content: "\e64c";}
+i.icon-icon-list::before {content: "\e896";}
 
 span[style*="delete.png"]::before {content: "\e872";}
 span[style*="arrow-in.png"]::before {content: "\e90b";}

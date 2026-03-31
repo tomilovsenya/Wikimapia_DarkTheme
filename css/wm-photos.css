@@ -34,30 +34,26 @@ body * {
 span, a, li { text-shadow: none; }
 
 ul.edit-object-breadcrumb,
-div#fileupload form *:not(span, button, input),
-h2,
-fieldset {
+div#fileupload form *:not(span, button, input, .ui-progressbar-value),
+h2, fieldset {
   background-color: var(--surface-2);
   color: var(--text);
 }
+fieldset > div:hover {background-color: var(--surface-3);}
 
 span#add-files,
 button {
   background-color: var(--primary);
   opacity: 100%;
-  &:hover {
-    background-color: var(--primary-hover);
-  }
+  &:hover {background-color: var(--primary-hover);}
 }
 
-input#urlfiles_rewritable {
-  background-color: var(--surface-3);
-}
+.ui-progressbar-value {background-color: var(--primary);}
+
+input#urlfiles_rewritable {background-color: var(--surface-3);}
 
 /* Fullscreen Photo */
-div.ui-widget-overlay {
-  background-color: var(--bg);
-}
+div.ui-widget-overlay {background-color: var(--bg);}
 div.ui-dialog-titlebar {
   background-color: var(--surface-2);
   color: var(--text);
@@ -89,7 +85,7 @@ a#refresh {
   }
 }
 
-span#add-files {
+#add-files {
   background-image: none;
   display: inline-flex;
   align-items: center;
@@ -128,6 +124,7 @@ span.ui-button-text {padding: 0;}
   background: none;
   margin: 0;
 }
+.fileupload-content button::before {color: var(--text);}
 .delete-photo::before {content: "\e872";}
 .undelete-photo::before {content: "\e938";}
 .cancel-photo-upload::before {content: "\e872";}
