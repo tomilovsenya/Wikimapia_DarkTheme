@@ -237,6 +237,14 @@ ul.nav-list {
 .alert-info {background-color: #2d698780;}
 .alert-danger, .alert-error {background-color: #80000080;}
 
+.ui-state-error,
+.ui-widget-content .ui-state-error,
+.ui-widget-header .ui-state-error {
+  border: 1px solid #cd0a0a;
+  background: #b94a4880 50% 50% repeat-x;
+  color: var(--text-muted);
+}
+
 /* Labels and Badges */
 .badge {
   background-color: #3fc1c040;
@@ -598,37 +606,28 @@ span.prevnext:hover {
   #comment-input { width: 98%; }
   .edit-form-description-input textarea { width: 100%; }
 
-  /* Then group the shared properties */
+  span, a, li { text-shadow: none; }
+  a:hover { background-color: var(--surface-3); }
+
   #comment-input, 
   .edit-form-description-input textarea {
     min-height: 100px;
     max-height: 300px;
   }
-
-  /* Panel & Global resets */
-  span, a, li { text-shadow: none; }
-  a:hover { background-color: var(--surface-3); }
-
-  /* Surface-2 Background Group */
   #placeinfo-locationtree,
   .edit-object-breadcrumb,
   #edit-actions,
   #searchtcatsdiv ul {
     background-color: var(--surface-2);
   }
-
-  /* Categories Section */
   #placeinfo-categories {
     strong.category, a {
       background: none;
       background-color: var(--surface-2);
       color: var(--text-muted);
-
       &:hover { background-color: var(--surface-3); }
     }
   }
-
-  /* Edit Actions Section */
   #edit-actions {
     span {
       background: none;
@@ -642,13 +641,11 @@ span.prevnext:hover {
     }
   }
 
-  /* Icons Consistently Sized */
   i[class^="icon-"]::before { font-size: 16px; }
   .icon-tags::before { content: "\e0ee"; }
   .icon-tag::before  { content: "\f756"; }
   .icon-plus::before { content: "\e567"; }
 
-  /* Sharing & Misc */
   #permalink-sharing a {
     background: none;
     background-color: var(--surface-2);
@@ -659,7 +656,6 @@ span.prevnext:hover {
 
   .accordion-heading:hover {background-color: var(--surface-3);}
 
-  /* Search Categories List */
   #searchtcatsdiv {
     li a {
       background: none;
