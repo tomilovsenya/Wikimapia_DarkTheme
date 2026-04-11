@@ -144,7 +144,7 @@ input, button, select, textarea, strong, span {
 #top-panel-facebook-button {display: none;}
 
 /* =========================================
-   3. PANELS, WINDOWS AND BOOTSTRAP COMMON
+    3. PANELS, WINDOWS AND BOOTSTRAP COMMON
 ========================================= */
 
 *:not(b.caret) {border-color: var(--border);}
